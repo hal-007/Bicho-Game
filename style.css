@@ -46,3 +46,74 @@ button:hover {
 #resetGame:hover {
   background-color: #d32f2f;
 }
+/* Feedback animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#feedback {
+  margin-top: 20px;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease, shake 0.5s ease;
+}
+
+/* Button Hover Effects */
+button {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1); /* Slightly enlarge the button */
+  background-color: #45a049; /* Change color on hover */
+}
+
+#resetGame {
+  background-color: #f44336;
+}
+
+#resetGame:hover {
+  background-color: #d32f2f;
+}
+
+/* Fun win animation */
+@keyframes winAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#feedback.correct {
+  animation: winAnimation 1s ease-out; /* Zoom-in effect when the player wins */
+  color: #4CAF50; /* Green color for success */
+}
