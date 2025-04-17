@@ -33,3 +33,23 @@ resetGameButton.addEventListener('click', () => {
   submitGuess.disabled = false;
   resetGameButton.style.display = 'none';
 });
+submitGuess.addEventListener('click', () => {
+  const guess = Number(guessInput.value);
+  attempts++;
+
+  if (guess < secretNumber) {
+    feedback.textContent = 'Too low! Try again.';
+    feedback.classList.remove('correct'); // Remove win class if it's there
+  } else if (guess > secretNumber) {
+    feedback.textContent = 'Too high! Try again.';
+    feedback.classList.remove('correct'); // Remove win class if it's there
+  } else {
+    feedback.textContent = `Correct! You guessed it in ${attempts} attempts.`;
+    feedback.classList.add('correct'); // Add the 'correct' class for winning animation
+    submitGuess.disabled = true;
+    resetGameButton.style.display = 'inline-block';
+  }
+
+  guessInput.value = '';
+  guessInput.focus();
+});
